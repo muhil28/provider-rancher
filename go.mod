@@ -1,4 +1,4 @@
-module github.com/upbound/upjet-provider-template
+module github.com/muhil28/provider-rancher
 
 go 1.21
 

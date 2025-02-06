@@ -1,11 +1,11 @@
 apiVersion: rancher.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: default
+  name: rancher-bootstrap
 spec:
   credentials:
     source: Secret
     secretRef:
-      name: example-creds
-      namespace: crossplane-system
+      name: rancher2-example-creds
+      namespace: crossplane
       key: credentials

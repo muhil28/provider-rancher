@@ -9,14 +9,18 @@ import (
 
 	"github.com/crossplane/upjet/pkg/controller"
 
+	bootstrap "github.com/muhil28/provider-rancher/internal/controller/bootstrap/bootstrap"
 	providerconfig "github.com/muhil28/provider-rancher/internal/controller/providerconfig"
+	user "github.com/muhil28/provider-rancher/internal/controller/user/user"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		bootstrap.Setup,
 		providerconfig.Setup,
+		user.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

@@ -1,0 +1,15 @@
+apiVersion: bootstrap.maaraa.io/v1alpha1
+kind: Bootstrap
+metadata:
+  annotations:
+    meta.upbound.io/example-id: bootstrap/v1alpha1/bootstrap
+  labels:
+    testing.upbound.io/example-name: admin
+  name: admin
+spec:
+  forProvider:
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    telemetry: true

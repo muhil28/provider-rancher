@@ -67,6 +67,7 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			apiUrl = "api_url"
 			accessKey = "access_key"
 			secretKey = "secret_key"
+			insecure = "insecure"
 			bootstrap = "bootstrap"
 		)
 		
@@ -78,6 +79,9 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 		if v, ok := creds[secretKey]; ok {
 			ps.Configuration[secretKey] = v
+		}
+		if v, ok := creds[insecure]; ok {
+			ps.Configuration[insecure] = v
 		}
 		if v, ok := creds[bootstrap]; ok {
 			ps.Configuration[bootstrap] = v

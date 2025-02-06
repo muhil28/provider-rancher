@@ -67,11 +67,20 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			apiUrl = "api_url"
 			accessKey = "access_key"
 			secretKey = "secret_key"
+			bootstrap = "bootstrap"
 		)
+		
 		ps.Configuration = map[string]any{
 			"api_url": creds[apiUrl],
-			"access_key": creds[accessKey],
-			"secret_key": creds[secretKey],
+		}
+		if v, ok := creds[accessKey]; ok {
+			ps.Configuration[accessKey] = v
+		}
+		if v, ok := creds[secretKey]; ok {
+			ps.Configuration[secretKey] = v
+		}
+		if v, ok := creds[bootstrap]; ok {
+			ps.Configuration[bootstrap] = v
 		}
 		return ps, nil
 	}

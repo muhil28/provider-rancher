@@ -9,10 +9,10 @@ metadata:
 spec:
   forProvider:
     enabled: true
-    mustChangePassword: true
+    mustChangePassword: false
     name: Foo user
     passwordSecretRef:
-      key: example-key
-      name: example-secret
-      namespace: upbound-system
+      key: password
+      name: foo-user-secret
+      namespace: crossplane
     username: foo

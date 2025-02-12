@@ -7,7 +7,14 @@ metadata:
     testing.upbound.io/example-name: admin
   name: admin
 spec:
+  writeConnectionSecretToRef:
+    name: ranhcer-provider-main-credentials
+    namespace: crossplane
   forProvider:
+    initialPasswordSecretRef:
+      key: initial-password
+      name: rancher-bootstrap-password
+      namespace: crossplane
     passwordSecretRef:
       key: password
       name: rancher-bootstrap-password
